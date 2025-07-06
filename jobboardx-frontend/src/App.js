@@ -4,13 +4,14 @@ import Register from './pages/Register';
 import AdminDashboard from './pages/dashboards/AdminDashboard';
 import RecruiterDashboard from './pages/dashboards/RecruiterDashboard';
 import CandidateDashboard from './pages/dashboards/CandidateDashboard';
-import AuthProvider from './auth/AuthContext';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoutes';
+import React from 'react';
 
 function App() {
   return (
-    <AuthProvider>
+    // <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path='/login' element={<Login />} />
@@ -32,7 +33,7 @@ function App() {
           } />
         </Routes>
       </BrowserRouter>
-    </AuthProvider>
+    // </AuthProvider>
   );
 }
 
