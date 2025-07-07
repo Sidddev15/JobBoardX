@@ -1,6 +1,6 @@
 import './App.css';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 import AdminDashboard from './pages/dashboards/AdminDashboard';
 import RecruiterDashboard from './pages/dashboards/RecruiterDashboard';
 import CandidateDashboard from './pages/dashboards/CandidateDashboard';

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import axios from "../api/axiosInstance";
+import axios from "../../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import './Register.css';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -25,9 +26,9 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="register-form-container">
       <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="register-input-container">
         <input name="name" placeholder="Name" onChange={handleChange} />
         <input name="email" placeholder="Email" onChange={handleChange} />
         <input name="password" type="password" placeholder="Password" onChange={handleChange} />

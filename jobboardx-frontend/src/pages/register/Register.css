@@ -1,0 +1,79 @@
+.register-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: 100vh;
+}
+
+.register-form-container h2 {
+  font-family: var(--secondary-font);
+  font-size: var(--heading-size);
+  font-weight: 600;
+  letter-spacing: -2px;
+  color: #22223B;
+}
+
+.register-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.register-input-container input,
+.register-input-container select {
+  width: 250px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #dbe4ee;
+  border-radius: 5px;
+  background: #f5f6fa;
+  color: #22223B;
+  font-family: var(--secondary-font);
+  transition: border 0.2s, background 0.2s;
+}
+
+.register-input-container input:focus,
+.register-input-container select:focus {
+  border-color: #3498db;
+  background: #eaf6fb;
+  outline: none;
+}
+
+.register-input-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4L8 8L12 4' stroke='%233498DB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 12px;
+  cursor: pointer;
+}
+
+.register-input-container button {
+  background-color: #3498DB;
+  min-width: 200px;
+  border: 1px solid #F5F6FA;
+  outline: 0;
+  border-radius: 5px;
+  color: #fff;
+  font-family: var(--secondary-font);
+  font-size: 18px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-input-container button:hover {
+  background-color: #1B263B;
+  color: #ffffff;
+}
+
+.input-error {
+  border: 1.5px solid #ff4d4f;
+  outline: none;
+  background: #fff0f0;
+  transition: all 0.4s ease;
+}
