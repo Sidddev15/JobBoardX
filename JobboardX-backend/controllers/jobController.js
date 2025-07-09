@@ -13,6 +13,9 @@ exports.createJob = async (req,res) => {
             message: err.message
         });
     }
+    console.log("Creating job for user:", req.user.id);
+    console.log(req.user);
+
 };
 
 // Anyone views jobs
@@ -62,4 +65,33 @@ exports.getAllApplication = async (req,res) => {
     } catch(err) {
         res.status(500).json({ message: err.message });
     }
+};
+
+// PATCH /jobs/:id
+exports.updateJob = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.id);
+    if (!job || job.createdBy.toString() !== req.user.id)
+      return res.status(403).send("Unauthorized");
+
+    Object.assign(job, req.body);
+    await job.save();
+    res.json(job);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// DELETE /jobs/:id
+exports.deleteJob = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.id);
+    if (!job || job.createdBy.toString() !== req.user.id)
+      return res.status(403).send("Unauthorized");
+
+    await job.deleteOne();
+    res.send("Deleted");
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 };

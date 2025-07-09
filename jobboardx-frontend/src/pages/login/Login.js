@@ -13,16 +13,20 @@ const Login = () => {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post("/auth/login", form);
-      login(res.data.token);
-      const role = JSON.parse(atob(res.data.token.split(".")[1])).role;
-      navigate(`/${role}`);
-    } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
-    }
-  };
+  e.preventDefault();
+  try {
+    const res = await axios.post("/auth/login", form);
+
+    localStorage.setItem("token", res.data.token); // ✅
+
+    login(res.data.token);
+
+    const role = JSON.parse(atob(res.data.token.split(".")[1])).role;
+    navigate(`/${role}`);
+  } catch (err) {
+    alert(err.response?.data?.message || "Login failed");
+  }
+};
 
   return (
     <div className="login-form-container">

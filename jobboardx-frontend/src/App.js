@@ -1,25 +1,26 @@
 import './App.css';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
-import LandingPage from './pages/landing/LandingPage';
+import RedirectLanding from './pages/landing/RedirectLanding';
 import AdminDashboard from './pages/dashboards/AdminDashboard';
 import RecruiterDashboard from './pages/dashboards/RecruiterDashboard';
 import CandidateDashboard from './pages/dashboards/CandidateDashboard';
-
+import AuthProvider from './auth/AuthContext';  
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoutes';
-import React from 'react';
 import AllJobs from './pages/jobs/AllJobs';
 import PostJobs from './pages/jobs/PostJobs';
 import MyPostedJobs from './pages/jobs/MyPostedJob';
 import MyApplications from './pages/jobs/MyApplications';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    // <AuthProvider>
+    <AuthProvider>
       <BrowserRouter>
+      <Navbar />
         <Routes>
-          <Route path='/' element={<LandingPage />} />
+          <Route path='/' element={<RedirectLanding />} />
           <Route path='/login' element={<Login />} />
           <Route path="/register" element={<Register />}/>
           <Route path='/jobs' element={<AllJobs />} />
@@ -55,7 +56,7 @@ function App() {
           } />
         </Routes>
       </BrowserRouter>
-    // </AuthProvider>
+    </AuthProvider>
   );
 }
 

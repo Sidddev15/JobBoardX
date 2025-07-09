@@ -1,7 +1,11 @@
 import { useState } from "react";
 import axios from "../../api/axiosInstance";
+import { useContext } from "react";
+import { AuthContext } from "../../auth/AuthContext";
 
 const PostJobs = () => {
+  const { user } = useContext(AuthContext);
+  console.log("Current user:", user);
   const [job, setJob] = useState({
     title: "",
     description: "",
@@ -11,7 +15,7 @@ const PostJobs = () => {
   });
 
   const handleChange = (e) =>
-    setJob({ ...job, [e.target.name]: [e.target.value] });
+    setJob({ ...job, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
